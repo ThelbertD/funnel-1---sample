@@ -13,7 +13,7 @@ A VSL-led lead magnet funnel for Founder Freedom (James Clanfield). Cold traffic
 | 5 | Book a call | Day and time picker for the Clarity Call |
 | 6 | Call booked | Confirmation video and pre-call questions |
 
-Use the bar at the bottom of the page to move between steps. **Notes & script** shows each page's purpose, target metric and the full VSL script. **Present** hides the preview tools.
+Each page links to the next through its own buttons and forms, just like the live funnel. To jump straight to a step, add its name to the URL, for example `#results`.
 
 ## View it
 
@@ -35,5 +35,5 @@ YouTube, Vimeo, Loom and Wistia links work, or put a file in `videos/` and use `
 ## Files
 
 - `index.html`: all funnel pages, copy and audit logic
-- `assets/ff.js`, `assets/ff.css`: page router, video cards, preview bar and notes panel
+- `assets/ff.js`, `assets/ff.css`: page router and video cards
 - `videos.js`: video settings
