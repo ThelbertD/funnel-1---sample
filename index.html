@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Freedom Audit · Founder Freedom</title>
+<meta name="description" content="Find the one thing that's costing you your freedom. A free 10-minute audit across the six pillars of a Founder Freedom Business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/ff.css">
+<style>
+/* Funnel 1 · editorial "report" style from founderfreedom.coach: paper ground, Instrument Serif display, terracotta + leaf accents.
+   Signature: the six PILLAR pillars drawn as columns whose height is the score. */
+:root{
+  --paper:#f4ece1; --paper-2:#ece2d2; --paper-3:#e0d5c3; --card:#faf5ee;
+  --ink:#1a1612; --ink-2:#2a221b; --ink-3:#6b5d4f; --ink-4:#9a8b7e;
+  --accent:#c2532b; --accent-deep:#9a3f1f; --accent-soft:#e9b89c; --leaf:#4a5d3a;
+  --rule:rgba(26,22,18,.12); --rule-strong:rgba(26,22,18,.24);
+  --serif:"Instrument Serif","Cormorant Garamond",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --ff-muted:var(--ink-3);
+  --vsl-bg:#1a1612; --vsl-ink:#f4ece1; --vsl-accent:#e9b89c; --vsl-accent-strong:#c2532b; --vsl-radius:6px;
+  --vsl-display:var(--serif); --vsl-mono:var(--mono);
+  --vsl-art:radial-gradient(90% 120% at 85% 110%,rgba(194,83,43,.35),transparent 60%),repeating-linear-gradient(90deg,transparent 0 46px,rgba(244,236,225,.035) 46px 47px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(44px,7vw,88px);line-height:.98}
+h2{font-size:clamp(34px,4.6vw,56px);line-height:1.02}
+h3{font-size:clamp(24px,2.6vw,30px);line-height:1.1}
+h1 em,h2 em,h3 em{color:var(--accent);font-style:italic}
+.eyebrow{font:500 11px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.lead{font-size:clamp(17px,1.6vw,19.5px);color:var(--ink-3);max-width:54ch;margin:0}
+.muted{color:var(--ink-3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:17px 28px;font:600 15.5px var(--sans);text-decoration:none;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--accent);transform:translateY(-1px)}
+.btn .ar{transition:transform .2s}
+.btn:hover .ar{transform:translateX(3px)}
+.btn.terra{background:var(--accent)}
+.btn.terra:hover{background:var(--accent-deep)}
+.btn.line{background:transparent;color:var(--ink);border:1px solid var(--rule-strong)}
+.btn.line:hover{border-color:var(--ink);background:transparent}
+.under{font-size:13px;color:var(--ink-3);margin-top:12px}
+section.blk{padding-block:clamp(64px,9vw,120px);border-top:1px solid var(--rule)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,48px)}
+.sec-head .idx{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:20px}
+
+/* nav */
+.nav{display:flex;justify-content:space-between;align-items:center;padding-block:22px;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--rule)}
+.logo{font-family:var(--serif);font-size:24px;text-decoration:none}
+.logo em{color:var(--accent)}
+.nav small{font:500 10.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(48px,7vw,96px)}
+.hero .copy{display:grid;gap:26px}
+.hero-proof{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--ink-3)}
+.hero-proof span{display:flex;align-items:center;gap:8px}
+.hero-proof span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--leaf)}
+
+/* pillar columns */
+.temple{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:clamp(18px,3vw,28px);display:grid;gap:16px}
+.temple .tt{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.temple .tt b{font-family:var(--serif);font-weight:400;font-size:22px}
+.temple .tt span{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+.pediment{height:18px;background:var(--ink);clip-path:polygon(4% 100%,50% 0,96% 100%)}
+.cols{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(6px,1.4vw,14px);align-items:end;height:220px;border-bottom:6px solid var(--ink);padding-inline:4%}
+.col{display:grid;grid-template-rows:auto 1fr auto;height:var(--h);min-height:34px;transition:height .9s cubic-bezier(.2,.8,.2,1)}
+.col .cap{height:8px;background:var(--ink-2);margin-inline:-14%;border-radius:1px}
+.col .shaft{background:repeating-linear-gradient(90deg,var(--paper-3) 0 3px,var(--paper-2) 3px 7px);border-inline:1px solid var(--rule-strong)}
+.col .base{height:6px;background:var(--ink-2);margin-inline:-10%}
+.col.weak .shaft{background:repeating-linear-gradient(90deg,var(--accent) 0 3px,#d06a44 3px 7px);border-color:var(--accent-deep)}
+.col.weak .cap,.col.weak .base{background:var(--accent-deep)}
+.col-l{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(6px,1.4vw,14px);padding-inline:4%;text-align:center}
+.col-l div{display:grid;gap:2px}
+.col-l b{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.4vw,28px);line-height:1}
+.col-l span{font-size:clamp(9.5px,1vw,11px);color:var(--ink-3);line-height:1.2}
+.col-l em{font:500 11px var(--mono);font-style:normal;color:var(--ink-4)}
+.col-l .weak b,.col-l .weak em{color:var(--accent)}
+
+/* pains */
+.pains{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+.pains p{margin:0;padding:20px 0;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:clamp(20px,2vw,24px);line-height:1.25;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.pains p i{font-style:italic;color:var(--accent);font-size:17px;padding-top:3px}
+.verdict{margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--rule-strong);border-radius:4px;overflow:hidden}
+.verdict div{padding:22px;border-right:1px solid var(--rule)}
+.verdict div:last-child{border-right:0;background:var(--ink);color:var(--paper)}
+.verdict small{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+.verdict div:last-child small{color:var(--accent-soft)}
+.verdict p{margin:6px 0 0;font-family:var(--serif);font-size:24px;line-height:1.15}
+.verdict s{color:var(--ink-4);text-decoration-thickness:1px}
+
+/* six pillars */
+.six{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule-strong)}
+.six article{padding:26px 24px 28px 0;border-bottom:1px solid var(--rule);display:grid;gap:8px;align-content:start}
+.six article:not(:nth-child(3n)){border-right:1px solid var(--rule);margin-right:0}
+.six article:nth-child(3n+2),.six article:nth-child(3n){padding-left:24px}
+.six .L{font-family:var(--serif);font-size:56px;line-height:.9;color:var(--accent)}
+.six b{font-weight:600;font-size:16px}
+.six p{margin:0;color:var(--ink-3);font-size:15px}
+
+/* get */
+.get{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.get div{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:22px;display:grid;gap:10px;align-content:start}
+.get i{font-family:var(--serif);color:var(--accent);font-size:22px}
+.get b{font-weight:600}
+.get span{font-size:14.5px;color:var(--ink-3)}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:start}
+.portrait{aspect-ratio:4/5;max-width:100%;background:linear-gradient(160deg,var(--paper-3),var(--paper-2));border:1px solid var(--rule);border-radius:4px;display:grid;place-items:end start;padding:18px;position:relative;overflow:hidden}
+.portrait::before{content:"JC";position:absolute;right:-10px;top:-30px;font-family:var(--serif);font-size:220px;color:rgba(26,22,18,.06);line-height:1}
+.portrait small{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--rule-strong);margin-top:28px}
+.facts div{padding:16px 16px 0 0;display:grid;gap:2px}
+.facts b{font-family:var(--serif);font-weight:400;font-size:34px;line-height:1}
+.facts span{font-size:13px;color:var(--ink-3)}
+
+/* quotes */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.quotes figure{margin:0;display:grid;gap:16px;align-content:start;padding-top:20px;border-top:2px solid var(--ink)}
+.quotes blockquote{margin:0;font-family:var(--serif);font-size:clamp(22px,2.2vw,27px);line-height:1.2}
+.quotes figcaption{font-size:13.5px;color:var(--ink-3)}
+.quotes figcaption b{display:block;color:var(--ink);font-weight:600}
+
+/* final cta */
+.final{background:var(--ink);color:var(--paper);border-radius:6px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:28px;align-items:end}
+.final h2 em{color:var(--accent-soft)}
+.final .btn{background:var(--accent)}
+.final .btn:hover{background:var(--paper);color:var(--ink)}
+.final .under{color:#b5a898}
+footer.ft{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-block:28px;border-top:1px solid var(--rule);font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:clamp(48px,7vw,96px)}
+
+/* ---------- forms ---------- */
+.gate{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:clamp(22px,4vw,36px);display:grid;gap:14px}
+.optin{box-shadow:0 30px 60px -40px rgba(26,22,18,.45)}
+.optin h3{font-size:clamp(28px,3vw,34px)}
+.field{display:grid;gap:6px;font-size:13px;color:var(--ink-3);font-weight:500}
+.field .opt{font-weight:400;color:var(--ink-4)}
+.field input,.field textarea,.field select{font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:#fff;border:1px solid var(--rule-strong);border-radius:6px;padding:13px 14px;width:100%}
+.field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+.fine{font-size:12.5px;color:var(--ink-4)}
+.fine.bad{color:var(--accent-deep);font-weight:500}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-3)}
+.check input{margin-top:3px;accent-color:var(--accent)}
+.linkbtn{background:none;border:0;padding:0;color:var(--ink-3);font:inherit;font-size:14px;text-decoration:underline;cursor:pointer}
+/* audit form */
+.aform{max-width:820px;margin:0 auto;display:grid;gap:20px;padding-block:clamp(36px,5vw,64px)}
+.ahead{display:grid;gap:14px}
+.ahead h1{font-size:clamp(38px,5.2vw,62px)}
+.asticky{position:sticky;top:0;z-index:5;background:var(--paper);padding-block:14px 12px;display:grid;gap:8px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--rule)}
+.aprog{height:4px;background:var(--paper-3);border-radius:2px;overflow:hidden}
+.aprog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.pil{border:1px solid var(--rule);background:var(--card);border-radius:6px;padding:clamp(18px,3vw,30px);margin:0;display:grid;gap:12px;min-width:0}
+.pil legend{float:left;width:100%;display:flex;gap:14px;align-items:center;padding:0 0 4px;margin:0}
+.pil legend + *{clear:both}
+.pil legend .L{font-family:var(--serif);font-size:42px;line-height:1;color:var(--accent)}
+.pil legend b{display:block;font-weight:600;font-size:16px}
+.pil legend small{font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4)}
+.stmt{display:grid;gap:12px;padding-top:14px;border-top:1px solid var(--rule);scroll-margin-top:90px}
+.pil legend + .stmt{border-top:0;padding-top:4px}
+.stmt p{margin:0;font-family:var(--serif);font-size:clamp(20px,2.1vw,24px);line-height:1.25}
+.stmt.miss p::after{content:"  Please answer";font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.scale{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.scale label{position:relative;cursor:pointer}
+.scale input{position:absolute;opacity:0;width:1px;height:1px}
+.scale span{display:block;text-align:center;border:1px solid var(--rule-strong);border-radius:999px;padding:11px 8px;font-size:14px;font-weight:500;background:#fff;transition:background .15s,color .15s,border-color .15s}
+.scale label:hover span{border-color:var(--ink)}
+.scale input:checked + span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.scale input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.stmt.miss .scale span{border-color:var(--accent)}
+.asubmit{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding-top:6px}
+
+/* ---------- results ---------- */
+.rhero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,64px);align-items:start;padding-block:clamp(40px,6vw,80px)}
+.stamp{display:inline-flex;align-items:center;gap:8px;font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--rule-strong);border-radius:999px;padding:6px 12px;color:var(--ink-3)}
+.stamp.sample{border-color:var(--accent);color:var(--accent)}
+.score{display:flex;align-items:baseline;gap:10px;margin-top:6px}
+.score b{font-family:var(--serif);font-weight:400;font-size:clamp(64px,9vw,112px);line-height:.9}
+.score span{font-family:var(--serif);font-size:28px;color:var(--ink-4)}
+.band{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--leaf)}
+.vslblock{display:grid;gap:22px;padding-bottom:clamp(48px,7vw,88px)}
+.vslcta{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;border:1px solid var(--rule-strong);border-radius:6px;padding:18px 22px;background:var(--card)}
+.vslcta p{margin:0;font-family:var(--serif);font-size:22px;line-height:1.2}
+.diag{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.diag div{padding:24px;border-radius:4px;display:grid;gap:10px;align-content:start}
+.diag .a{background:var(--card);border:1px solid var(--rule)}
+.diag .b{background:var(--paper-2)}
+.diag .c{background:var(--ink);color:var(--paper)}
+.diag small{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+.diag .c small{color:var(--accent-soft)}
+.diag p{margin:0;font-size:15.5px}
+.diag .c p{font-family:var(--serif);font-size:22px;line-height:1.25}
+.route{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;background:#eef0e6;border:1px solid #cfd5c3;border-radius:6px;padding:18px 22px;margin-top:20px}
+.route b{font:500 10.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--leaf)}
+.route p{margin:0;font-size:15px}
+.call{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px)}
+.steps4{display:grid;gap:0;counter-reset:s}
+.steps4 div{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.steps4 div::before{counter-increment:s;content:counter(s,lower-roman);font-family:var(--serif);font-style:italic;color:var(--accent);font-size:22px}
+.fit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fit div{padding:22px;border-radius:4px;display:grid;gap:10px;align-content:start}
+.fit .y{background:var(--card);border:1px solid var(--rule)}
+.fit .n{border:1px dashed var(--rule-strong)}
+.fit ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--ink-3);font-size:15px}
+.faq details{border-bottom:1px solid var(--rule);padding-block:18px;max-width:780px}
+.faq summary{cursor:pointer;font-family:var(--serif);font-size:23px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:10px 0 0;color:var(--ink-3);max-width:62ch}
+
+/* ---------- booking ---------- */
+.book{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px);padding-block:clamp(40px,6vw,80px);align-items:start}
+.host{display:grid;gap:14px;position:sticky;top:20px}
+.host .meta{display:grid;gap:8px;font-size:14.5px;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:14px}
+.cal{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:clamp(18px,3vw,28px);display:grid;gap:20px}
+.days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.days button{border:1px solid var(--rule-strong);background:#fff;border-radius:6px;padding:12px 6px;display:grid;gap:2px;text-align:center;cursor:pointer;font:inherit;color:var(--ink)}
+.days button small{font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4)}
+.days button b{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1}
+.days button.sel{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.days button.sel small{color:var(--accent-soft)}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.times button{border:1px solid var(--rule-strong);background:#fff;border-radius:999px;padding:11px 8px;font:500 14px var(--sans);cursor:pointer;color:var(--ink);font-variant-numeric:tabular-nums}
+.times button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.times button.sel{background:var(--accent);border-color:var(--accent);color:#fff}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+
+/* booked */
+.ticket{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center;background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--leaf);border-radius:6px;padding:18px 22px}
+.ticket .d{font-family:var(--serif);font-size:44px;line-height:1;text-align:center}
+.ticket .d small{display:block;font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+.ticket p{margin:0}
+
+/* ads */
+.ads{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-block:clamp(36px,5vw,64px)}
+.ad{background:#fff;border:1px solid var(--rule);border-radius:10px;overflow:hidden;display:grid;grid-template-rows:auto auto 1fr auto;font-size:13.5px}
+.ad .ah{display:flex;gap:10px;align-items:center;padding:12px}
+.ad .av{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-family:var(--serif);font-size:15px}
+.ad .ah b{display:block;font-size:13px}
+.ad .ah small{font-size:11px;color:var(--ink-4)}
+.ad .tx{padding:0 12px 12px;white-space:pre-line;color:var(--ink-2)}
+.ad .cr{aspect-ratio:4/5;max-width:100%;padding:18px;display:grid;align-content:space-between;background:var(--paper)}
+.ad .cr.dk{background:var(--ink);color:var(--paper)}
+.ad .cr h4{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.2vw,28px);line-height:1.04;margin:0}
+.ad .cr h4 em{color:var(--accent)}
+.ad .cr.dk h4 em{color:var(--accent-soft)}
+.ad .cr small{font:500 9.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.ad .mini{display:flex;gap:3px;align-items:end;height:40px}
+.ad .mini i{flex:1;background:var(--paper-3)}
+.ad .cr.dk .mini i{background:#3a3129}
+.ad .mini i.w{background:var(--accent)}
+.ad .af{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;background:#f6f2ec}
+.ad .af span{font-size:11px;color:var(--ink-4)}
+.ad .af b{font-size:12px;background:#e6ded2;padding:7px 10px;border-radius:4px;white-space:nowrap}
+.adnote{font-size:13px;color:var(--ink-3);margin-top:8px}
+
+@media (max-width:980px){
+  .hero,.rhero,.about,.call,.book{grid-template-columns:minmax(0,1fr)}
+  .get{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ads{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .host{position:static}
+  .final{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:700px){
+  .pains,.quotes,.six,.diag,.fit,.verdict,.get,.grid2,.qopts,.qopts.wide{grid-template-columns:minmax(0,1fr)}
+  .six article{padding:22px 0!important;border-right:0!important}
+  .verdict div{border-right:0;border-bottom:1px solid var(--rule)}
+  .facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .days{grid-template-columns:repeat(5,minmax(52px,1fr));overflow-x:auto}
+  .route{grid-template-columns:minmax(0,1fr)}
+  .ads{grid-template-columns:minmax(0,1fr)}
+  .cols{height:170px}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= 1 · ADS ======================= -->
+<section data-page="ads" hidden>
+  <div class="wrap">
+    <nav class="nav"><a class="logo" href="#audit"><em>Founder</em> Freedom</a><small>Ad concepts · cold traffic</small></nav>
+    <div style="padding-top:clamp(36px,5vw,64px);display:grid;gap:14px">
+      <div class="eyebrow">Four hooks · one destination</div>
+      <h2>Lead with the problem. <em>Offer a ten-minute answer.</em></h2>
+      <p class="lead">Every ad points to the same audit page. Test the hooks against each other, keep the winner, then write five more like it.</p>
+    </div>
+    <div class="ads">
+      <div class="ad"><div class="ah"><div class="av">FF</div><div><b>Founder Freedom</b><small>Sponsored</small></div></div>
+        <div class="tx">If your business stops when you stop, you don't have a business. You have a job you can't quit.
+
+The Freedom Audit takes 10 minutes. It shows you which of six pillars is costing you your freedom.</div>
+        <div class="cr"><small>Hook 1 · The bottleneck</small><h4>If it stops when you stop, <em>it's a job.</em></h4><div class="mini"><i style="height:80%"></i><i style="height:60%"></i><i class="w" style="height:30%"></i><i style="height:50%"></i><i style="height:60%"></i><i style="height:70%"></i></div></div>
+        <div class="af"><span>founderfreedom.coach</span><b>Take the audit</b></div></div>
+      <div class="ad"><div class="ah"><div class="av">FF</div><div><b>Founder Freedom</b><small>Sponsored</small></div></div>
+        <div class="tx">You're posting. You're showing up. You're working hard. It still isn't working.
+
+That's not a discipline problem. It's a structure problem. Find out which part is breaking.</div>
+        <div class="cr dk"><small>Hook 2 · Reframe</small><h4>Not a discipline problem. <em>A structure problem.</em></h4><small>Free · 10 minutes</small></div>
+        <div class="af"><span>founderfreedom.coach</span><b>Start the audit</b></div></div>
+      <div class="ad"><div class="ah"><div class="av">FF</div><div><b>Founder Freedom</b><small>Sponsored</small></div></div>
+        <div class="tx">I used to be a school principal. Now I run my business from Kuala Lumpur and I'm at every one of my kids' training sessions.
+
+That happened by design. Start here.</div>
+        <div class="cr"><small>Hook 3 · James's story</small><h4>Freedom <em>by design,</em> not by accident.</h4><small>James Clanfield</small></div>
+        <div class="af"><span>founderfreedom.coach</span><b>Learn more</b></div></div>
+      <div class="ad"><div class="ah"><div class="av">FF</div><div><b>Founder Freedom</b><small>Sponsored</small></div></div>
+        <div class="tx">Quick question for solo founders. If you took two weeks off tomorrow, what would break first?
+
+Your answer tells you a lot. The audit tells you the rest.</div>
+        <div class="cr dk"><small>Hook 4 · The question</small><h4>What breaks <em>first</em> if you take two weeks off?</h4><small>Freedom Audit</small></div>
+        <div class="af"><span>founderfreedom.coach</span><b>Take the audit</b></div></div>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><a class="btn" href="#audit">Click an ad <span class="ar">→</span></a><span class="adnote">Talking-head video of James usually beats static graphics for cold traffic. Use these as the first frame and caption.</span></div>
+    <footer class="ft"><span>FounderFreedom™ · founderfreedom.coach</span><span>Ad concepts</span></footer>
+  </div>
+</section>
+
+<!-- ======================= 2 · AUDIT LANDING ======================= -->
+<section data-page="audit" hidden>
+  <div class="wrap">
+    <nav class="nav"><a class="logo" href="#audit"><em>Founder</em> Freedom</a><small>James Clanfield · The PILLAR Method™</small></nav>
+
+    <div class="hero">
+      <div class="copy">
+        <div class="eyebrow">Free · 10 minutes · for solo founders</div>
+        <h1>Find the one thing that's <em>costing you</em> your freedom.</h1>
+        <p class="lead">The Freedom Audit is a self-diagnostic across the six pillars of a Founder Freedom Business. You'll see exactly where the structure is breaking, and the first move to fix it.</p>
+        <div class="hero-proof"><span>12 statements · about 10 minutes</span><span>Instant results</span><span>No card, no call required</span></div>
+      </div>
+      <form class="gate optin" id="optin">
+        <div class="eyebrow">Start your free audit</div>
+        <h3>Get your <em>Freedom Score</em></h3>
+        <label class="field" for="o-n">First name<input id="o-n" autocomplete="given-name" required placeholder="Sarah"></label>
+        <label class="field" for="o-e">Email<input id="o-e" type="email" autocomplete="email" required placeholder="sarah@yourbusiness.com"></label>
+        <label class="field" for="o-m"><span>Mobile <span class="opt">(optional, for results by text)</span></span><input id="o-m" type="tel" autocomplete="tel" placeholder="+61 4xx xxx xxx"></label>
+        <label class="check" for="o-c"><input id="o-c" type="checkbox" checked> Send me James's weekly note. One email a week, unsubscribe any time.</label>
+        <button class="btn terra" type="submit">Start my audit <span class="ar">→</span></button>
+        <span class="fine">We respect your inbox. Your answers stay private.</span>
+      </form>
+    </div>
+
+    <section class="blk">
+      <div class="sec-head"><h2>Sound <em>familiar?</em></h2><span class="idx">i</span></div>
+      <div class="pains">
+        <p><i>a</i>You're good at what you do, but can't explain it clearly enough to sell it.</p>
+        <p><i>b</i>You're posting, showing up, working hard, and still not getting consistent clients.</p>
+        <p><i>c</i>Your tools and tech are scattered. Nothing talks to anything.</p>
+        <p><i>d</i>You're making money, but you're also making every decision and doing every task.</p>
+        <p><i>e</i>You feel one step behind, like everyone else has a system and you're still figuring it out.</p>
+        <p><i>f</i>You can't step away without things stopping.</p>
+      </div>
+      <div class="verdict">
+        <div><small>It isn't</small><p><s>A discipline problem</s></p></div>
+        <div><small>It isn't</small><p><s>A motivation problem</s></p></div>
+        <div><small>It is</small><p>A structure problem. The audit shows you which part.</p></div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="sec-head"><h2>Six pillars. <em>Measured in order.</em></h2><span class="idx">ii</span></div>
+      <div class="six">
+        <article><span class="L">P</span><b>Position</b><p>Who you serve, the problem you solve, and why you. Where most founders are quietly stuck.</p></article>
+        <article><span class="L">I</span><b>Identity</b><p>The brand, voice and presence that earn trust before the first call.</p></article>
+        <article><span class="L">L</span><b>Lead System</b><p>A repeatable way to bring the right people in, even on a calm week.</p></article>
+        <article><span class="L">L</span><b>Leverage</b><p>Tools, automation and AI that let one founder do the work of a team.</p></article>
+        <article><span class="L">A</span><b>Amplify</b><p>Turning what already works into more of what already works.</p></article>
+        <article><span class="L">R</span><b>Results</b><p>The few numbers that matter, so the business serves your life on purpose.</p></article>
+      </div>
+      <p class="muted" style="margin-top:22px;max-width:62ch">Each pillar stabilises the next. If you automate before your positioning is clear, you just send the wrong message faster. That's why the audit tells you where to start, not just what's wrong.</p>
+    </section>
+
+    <section class="blk">
+      <div class="sec-head"><h2>What you <em>walk away</em> with</h2><span class="idx">iii</span></div>
+      <div class="get">
+        <div><i>i</i><b>Your Freedom Score</b><span>Out of 60, across all six pillars.</span></div>
+        <div><i>ii</i><b>Your weakest pillar</b><span>Named plainly. The one quietly holding the rest back.</span></div>
+        <div><i>iii</i><b>Your first move</b><span>One clear action you can take this week.</span></div>
+        <div><i>iv</i><b>A video from James</b><span>What your result means and the fastest way to fix it.</span></div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="about">
+        <div class="portrait"><small>Photo · James Clanfield</small></div>
+        <div style="display:grid;gap:18px">
+          <div class="eyebrow">Built it. Live it. Teach it.</div>
+          <h2>I needed this framework <em>before</em> I taught it.</h2>
+          <p class="lead">I'm James. Thirteen years in education, including time as a school principal. I left the classroom during COVID to build a location-independent business, spent two years travelling Europe with my family, and now run it from Kuala Lumpur.</p>
+          <p class="muted" style="margin:0;max-width:58ch">For a while, nothing in that business moved without me. What fixed it wasn't working harder. It was building it in the right order. Today I take my kids to sport and train alongside them, and the business is designed around that kind of day.</p>
+          <div class="facts"><div><b>13+</b><span>years in education</span></div><div><b>2</b><span>years travelling Europe with family</span></div><div><b>6</b><span>pillars, taught in order</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="sec-head"><h2>What people <em>say</em></h2><span class="idx">iv</span></div>
+      <div class="quotes">
+        <figure><blockquote>"Completely transformed how I think about my business."</blockquote><figcaption><b>Ishan Kulkarni</b>Founder &amp; CEO, CrowdCoursing</figcaption></figure>
+        <figure><blockquote>"Accessible, adaptive and solution focused."</blockquote><figcaption><b>Kathryn Taylor</b>Director, Wellbeing Australia</figcaption></figure>
+        <figure><blockquote>"A powerful blend of educational leadership and marketing strategy."</blockquote><figcaption><b>Kale Kneale</b>CEO, The Transformation Network</figcaption></figure>
+      </div>
+    </section>
+
+    <div class="final">
+      <div style="display:grid;gap:14px"><h2>Ten minutes. You'll know more about your business <em>than you did this morning.</em></h2></div>
+      <div><a class="btn" href="#optin">Start the Freedom Audit <span class="ar">→</span></a><div class="under">Free. Instant results.</div></div>
+    </div>
+    <footer class="ft"><span>FounderFreedom™ · founderfreedom.coach</span><span>Privacy · Terms</span></footer>
+  </div>
+</section>
+
+<!-- ======================= 3 · QUIZ ======================= -->
+<section data-page="quiz" hidden>
+  <div class="wrap">
+    <nav class="nav"><a class="logo" href="#audit"><em>Founder</em> Freedom</a><small>The Freedom Audit</small></nav>
+    <form class="aform" id="aform" novalidate></form>
+  </div>
+</section>
+
+<!-- ======================= 4 · RESULTS + VSL ======================= -->
+<section data-page="results" hidden>
+  <div class="wrap">
+    <nav class="nav"><a class="logo" href="#audit"><em>Founder</em> Freedom</a><small>Your Freedom Audit</small></nav>
+
+    <div class="rhero">
+      <div style="display:grid;gap:18px">
+        <span class="stamp" id="r-stamp">Your result</span>
+        <h1 style="font-size:clamp(40px,6vw,76px)"><span id="r-name">Sarah</span>, your weakest pillar is <em id="r-pillar">Lead System</em>.</h1>
+        <p class="lead" id="r-meaning"></p>
+      </div>
+      <div class="temple">
+        <div class="tt"><b>Freedom Score</b><span class="band" id="r-band"></span></div>
+        <div class="score"><b id="r-score">36</b><span>/ 60</span></div>
+        <div class="pediment"></div>
+        <div class="cols" id="r-cols"></div>
+        <div class="col-l" id="r-labels"></div>
+      </div>
+    </div>
+
+    <div class="vslblock">
+      <div class="eyebrow">Watch this before you do anything else</div>
+      <div data-vsl="audit-results" data-eyebrow="A message from James · 9 minutes" data-title="Your score isn't a grade. It's a map." data-length="9:04"></div>
+      <div class="vslcta"><p>Want James to look at your result with you?</p><a class="btn terra" href="#book">Book my free Clarity Call <span class="ar">→</span></a></div>
+      <div class="route" id="r-route" hidden><b>Suggested for you</b><p>At your stage, the free monthly masterclass is often the best first step. You'll build your first system live, with James in the room.</p><a class="btn line" href="https://founderfreedom.coach/masterclass" target="_blank" rel="noopener">See the next date</a></div>
+    </div>
+
+    <section class="blk">
+      <div class="sec-head"><h2>What <em id="r-p2">Lead System</em> is costing you</h2><span class="idx">i</span></div>
+      <div class="diag">
+        <div class="a"><small>What it means</small><p id="r-d1"></p></div>
+        <div class="b"><small>What it costs</small><p id="r-d2"></p></div>
+        <div class="c"><small>Your first move this week</small><p id="r-d3"></p></div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="call">
+        <div style="display:grid;gap:18px;align-content:start">
+          <div class="eyebrow">The Clarity Call</div>
+          <h2>Free. Focused. <em>Not a sales pitch</em> with steps.</h2>
+          <p class="lead">Thirty minutes on video with James. You bring your result. He tells you the one thing to do next.</p>
+          <div><a class="btn" href="#book">Pick a time <span class="ar">→</span></a></div>
+        </div>
+        <div class="steps4">
+          <div><span>James listens to where you're at, using your audit result as the starting point.</span></div>
+          <div><span>He asks a few direct questions and names the real bottleneck.</span></div>
+          <div><span>You leave with one clear next step, whether or not you ever work together.</span></div>
+          <div><span>If deeper work is a fit, he'll say so. If it isn't, he'll say that too.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="fit">
+        <div class="y"><h3>This is for you if</h3><ul><li>You're a coach, consultant or expert running a service business.</li><li>You want a profitable, calm business, not a 50-person agency.</li><li>You want to use AI and modern tools yourself.</li><li>You want the business to serve your family, not the other way around.</li></ul></div>
+        <div class="n"><h3>It isn't for you if</h3><ul><li>You want a done-for-you marketing agency.</li><li>You're chasing hustle, hype or get-rich-quick.</li><li>You'd rather outsource the thinking about your business.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="quotes">
+        <figure><blockquote>"Completely transformed how I think about my business."</blockquote><figcaption><b>Ishan Kulkarni</b>Founder &amp; CEO, CrowdCoursing</figcaption></figure>
+        <figure><blockquote>"Accessible, adaptive and solution focused."</blockquote><figcaption><b>Kathryn Taylor</b>Director, Wellbeing Australia</figcaption></figure>
+        <figure><blockquote>"A powerful blend of educational leadership and marketing strategy."</blockquote><figcaption><b>Kale Kneale</b>CEO, The Transformation Network</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="blk faq">
+      <div class="sec-head"><h2>Questions</h2></div>
+      <details><summary>Is the call really free?</summary><p>Yes. The audit, the Clarity Call and the monthly masterclass are all free to start.</p></details>
+      <details><summary>Will I be pitched?</summary><p>If James thinks coaching is the right next step, he'll tell you and explain how it works. If not, you'll still leave with your next step.</p></details>
+      <details><summary>I'm already at six or seven figures. Is this for me?</summary><p>Often, yes. The most common reason established founders talk to James isn't growth. It's getting their life back.</p></details>
+      <details><summary>Where is James based?</summary><p>Kuala Lumpur. He works with founders across Australia, the US and beyond. Everything is on video.</p></details>
+    </section>
+
+    <div class="final">
+      <h2>Your audit found the gap. <em>The call shows you how to close it.</em></h2>
+      <div><a class="btn" href="#book">Book my free Clarity Call <span class="ar">→</span></a><div class="under">Not ready to talk? <a href="https://founderfreedom.coach/masterclass" target="_blank" rel="noopener" style="color:var(--accent-soft)">Join the next live masterclass.</a></div></div>
+    </div>
+    <footer class="ft"><span>FounderFreedom™ · founderfreedom.coach</span><span>Privacy · Terms</span></footer>
+  </div>
+</section>
+
+<!-- ======================= 5 · BOOK ======================= -->
+<section data-page="book" hidden>
+  <div class="wrap">
+    <nav class="nav"><a class="logo" href="#audit"><em>Founder</em> Freedom</a><small>Clarity Call</small></nav>
+    <div class="book">
+      <div class="host">
+        <div class="eyebrow">Free Clarity Call</div>
+        <h2>Pick a time <em>with James.</em></h2>
+        <p class="muted" style="margin:0">He'll listen, name the gap, and tell you your next immediate step.</p>
+        <div class="meta"><span>30 minutes · video call</span><span>Times shown in your local time</span><span>Limited spots each week. James takes these himself.</span></div>
+      </div>
+      <form class="cal" id="cal">
+        <div><div class="eyebrow" style="margin-bottom:12px">1 · Choose a day</div><div class="days" id="days"></div></div>
+        <div><div class="eyebrow" style="margin-bottom:12px">2 · Choose a time</div><div class="times" id="times"></div></div>
+        <div style="display:grid;gap:12px"><div class="eyebrow">3 · Your details</div>
+          <div class="grid2"><label class="field" for="bk-n">Name<input id="bk-n" autocomplete="name" placeholder="Sarah Mitchell"></label><label class="field" for="bk-e">Email<input id="bk-e" type="email" autocomplete="email" placeholder="sarah@yourbusiness.com"></label></div>
+          <label class="field" for="bk-q">What would you most like to fix in the next 90 days?<textarea id="bk-q" rows="2" placeholder="Consistent leads without posting every day."></textarea></label>
+        </div>
+        <button class="btn terra" type="submit" id="bk-go" disabled>Choose a time first</button>
+      </form>
+    </div>
+    <footer class="ft"><span>FounderFreedom™ · founderfreedom.coach</span><span>Privacy · Terms</span></footer>
+  </div>
+</section>
+
+<!-- ======================= 6 · BOOKED ======================= -->
+<section data-page="booked" hidden>
+  <div class="wrap">
+    <nav class="nav"><a class="logo" href="#audit"><em>Founder</em> Freedom</a><small>Clarity Call · confirmed</small></nav>
+    <div class="rhero" style="align-items:center">
+      <div style="display:grid;gap:18px">
+        <div class="eyebrow">You're booked</div>
+        <h1 style="font-size:clamp(40px,6vw,72px)">See you soon. Here's how to get <em>the most</em> out of it.</h1>
+        <div class="ticket"><div class="d" id="bk-day">·<small id="bk-mon"></small></div><div><p style="font-family:var(--serif);font-size:24px" id="bk-when">Clarity Call with James</p><p class="muted" style="font-size:14px">30 minutes · video link in your inbox · added to your calendar</p></div></div>
+      </div>
+      <div data-vsl="audit-booked" data-eyebrow="A quick note from James" data-title="Before our call: two things" data-length="1:15"></div>
+    </div>
+    <section class="blk">
+      <div class="call">
+        <form class="gate" id="precall">
+          <div class="eyebrow">Three questions before we talk</div>
+          <label class="field" for="pc1">What's the one thing you'd fix in the next 90 days?<textarea id="pc1" rows="2"></textarea></label>
+          <label class="field" for="pc2">What have you already tried?<textarea id="pc2" rows="2"></textarea></label>
+          <label class="field" for="pc3">What would your week look like if this was solved?<textarea id="pc3" rows="2"></textarea></label>
+          <button class="btn" type="submit">Send my answers</button>
+          <span class="fine" id="pc-ok">James reads these before the call, so you spend the time on answers, not background.</span>
+        </form>
+        <div style="display:grid;gap:18px;align-content:start">
+          <h3>Before the call</h3>
+          <div class="steps4"><div><span>Add the invite to your calendar.</span></div><div><span>Have your audit result open.</span></div><div><span>Join from a quiet place, video on.</span></div></div>
+          <div style="background:var(--paper-2);border-radius:4px;padding:20px;display:grid;gap:10px">
+            <span class="eyebrow">While you wait</span>
+            <p style="margin:0">Join the next free live masterclass and build your first AI system with James before your call.</p>
+            <div><a class="btn line" href="https://founderfreedom.coach/masterclass" target="_blank" rel="noopener">See the next date</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="ft"><span>FounderFreedom™ · founderfreedom.coach</span><span>Privacy · Terms</span></footer>
+  </div>
+</section>
+
+<script>
+/* ---------------- Funnel definition (steps, notes, VSL scripts) ---------------- */
+window.FF_FUNNEL = {
+  name: "Freedom Audit",
+  start: "audit",
+  steps: [
+    { id:"ads", label:"Ads", notes:{ purpose:"Stop the scroll for solo founders who feel trapped by their business and send them to a low-friction, high-value audit.", metric:["Target","CTR above 1.2%"], build:["Run 4 hooks against the same audit page","Talking-head video of James beats static for cold traffic","Retarget visitors who started but didn't finish the audit"] } },
+    { id:"audit", label:"Opt-in page", notes:{ purpose:"Turn a click into a lead. One promise and a short form above the fold: first name, email, optional mobile. Everything below the form answers the questions a sceptical founder has before they type their email.", metric:["Target","Opt-in above 35%"], build:["Replace with the GoHighLevel form (same three fields)","Fire Lead pixel on submit","Tag source: freedom-audit"] } },
+    { id:"quiz", label:"Audit form", notes:{ purpose:"The audit as one clean form: twelve statements grouped by pillar, each answered Rarely, Sometimes or Always true (scored 1, 3, 5). The lowest pillar becomes the result. Ties go to the earlier pillar because PILLAR is taught in order.", metric:["Target","Completion above 70%"], build:["Build as a GHL survey or form with scoring, or keep this page and post answers by webhook","Tag contacts weakest-pillar-[x], role and revenue band","Revenue under $5K also shows the masterclass on the results page"] } },
+    { id:"results", label:"Results + VSL", notes:{ purpose:"The money page. A personal headline, the pillar graphic with their real scores, then the VSL reframes the result from a grade into a map. The Clarity Call is the obvious next step.", metric:["Target","8% to 15% of audit takers book a call"], build:["Merge first name, weakest pillar and scores from the quiz","Results email sends the same link so people can come back","Secondary path: masterclass for people not ready to talk"] },
+      script:{ name:"Results VSL", dur:"8 to 10 min", fmt:"James to camera, natural setting. On-screen text for the six pillars. No music under speech.", parts:[
+        ["0:00","Hook",["You just took the Freedom Audit, so you've got your score and your weakest pillar.","Before you look at that number and feel bad about it, here's what I want you to know. Your score isn't a grade. It's a map.","In the next few minutes I'll show you why that one weak pillar is quietly costing you more time and money than everything else combined, and what to do about it."]],
+        ["0:30","Who I am",["I'm James Clanfield. For thirteen years I worked in education. I was a school principal.","During COVID I left to build my own business. I wanted to be location-independent and I wanted my family at the centre of it.","For a while I did what most founders do. I built a business that needed me for everything. Every lead, every decision, every follow-up. I was free on paper. I wasn't free in practice.","What changed wasn't working harder. It was building the business in the right order. Today I run it from Kuala Lumpur, and most afternoons I take my kids to sport and train alongside them."]],
+        ["2:00","The PILLAR Method",["[On screen: P · I · L · L · A · R]","Every Founder Freedom Business stands on six pillars. Position. Identity. Lead System. Leverage. Amplify. Results.","The order matters. If your positioning is fuzzy, your content won't land. If your content doesn't land, your lead system has nothing to feed it. And if you automate a broken lead system, you just get broken results faster.","Most founders are fixing pillar five while pillar one is cracked. Your audit showed you which pillar is weakest. That's where your energy goes first."]],
+        ["4:30","The cost",["It costs you the clients who scrolled past because they didn't get what you do. The evenings spent on tasks a system could run. The guessing every month about where the next client comes from.","And it costs you the thing you built this business for. Time, with the people who matter.","None of that is a discipline problem. You took a ten-minute audit about your business on purpose. It's a structure problem, and structure can be fixed."]],
+        ["6:00","The invitation",["[Booking button is already on the page below the video]","So here's my offer. A free Clarity Call with me. Thirty minutes, on video.","You bring your result. I'll ask a few direct questions, name the real bottleneck, and tell you the one thing to do next.","If it makes sense to work together, I'll tell you how that looks. If it doesn't, I'll tell you that too. I keep a limited number of these each week because I take them myself."]],
+        ["8:00","Close",["You didn't build a business to be trapped by it. You built it for a life.","Your audit showed you where the structure is breaking. The call shows you how to fix it. Click the button below and pick a time."]]
+      ]} },
+    { id:"book", label:"Book a call", notes:{ purpose:"Booking on the same domain, with the day and time choice first and details last. Fewer fields means more bookings.", metric:["Target","70% of booking-page visitors book"], build:["Replace with the GoHighLevel calendar widget","Prefill name and email from the audit","Fire Schedule pixel on confirmation"] } },
+    { id:"booked", label:"Call booked", notes:{ purpose:"Lock in the call and cut no-shows. The short video sets expectations and the three questions mean James walks in already knowing the situation.", metric:["Target","Show-up above 75%"], build:["SMS reminders at 24 hours and 1 hour","Pre-call answers write to the contact record","No-shows get a rebook link within 10 minutes"] },
+      script:{ name:"Booking confirmation video", dur:"75 sec", fmt:"James to camera, casual, one take.", parts:[
+        ["0:00","Thanks",["Thanks for booking. I'm looking forward to this."]],
+        ["0:10","Two things",["Two quick things so we make the most of thirty minutes.","First, check your email for the calendar invite and add it now.","Second, answer the three questions on this page. It means I walk in already knowing your situation, so we spend the call on the answer, not the background."]],
+        ["0:55","Close",["Have your audit result handy, join from somewhere quiet, and keep your video on. See you soon."]]
+      ]} }
+  ]
+};
+
+/* ---------------- Audit logic ---------------- */
+(function(){
+  const P = ["Position","Identity","Lead System","Leverage","Amplify","Results"];
+  const LET = ["P","I","L","L","A","R"];
+  const Q = [
+    [0,"I can explain who I help and what I solve in one sentence, and people get it straight away."],
+    [0,"My ideal clients see me as the obvious choice, not one option among many."],
+    [1,"My brand, voice and content are consistent everywhere I show up."],
+    [1,"People trust me before the first call because of how I show up online."],
+    [2,"I have a reliable way to bring qualified prospects in, even in a quiet week."],
+    [2,"I know roughly how many leads I'll get next month, without guessing."],
+    [3,"My tools talk to each other. Leads, bookings and follow-up run without me."],
+    [3,"I use AI or automation for tasks I used to do by hand."],
+    [4,"I know which content, offer and channel actually bring in clients."],
+    [4,"I double down on what works instead of starting something new every month."],
+    [5,"I track a few numbers every week and I know what they mean."],
+    [5,"My business gives me the time and life I designed it for."]
+  ];
+  const ROUTE = [
+    { k:"role", q:"Which best describes you?", o:["Coach","Consultant","Service business owner","Other expert-led business"] },
+    { k:"rev", q:"Roughly what does the business bring in each month?", o:["Under $5K","$5K to $20K","$20K to $50K","$50K or more"] }
+  ];
+  const TXT = {
+    "Position":["Your expertise is real, but your message isn't doing you any favours. When people can't repeat what you do in one sentence, they don't remember you, refer you or buy.","Every other pillar runs weaker. Content doesn't land, referrals stall, and you end up discounting to win work you should win on clarity.","Write your offer in one sentence: I help [who] solve [problem] so they can [result]. If it takes more than a minute, that's your work this week."],
+    "Identity":["People find you, but they don't yet trust you before the call. When your voice and content shift from week to week, every sale starts from zero.","Longer sales calls, more convincing, and more \"let me think about it\". Trust you could have earned in advance gets spent in the meeting.","Look at your last ten posts. Would a stranger know what you do and who it's for? Pick one core message and repeat it for 30 days."],
+    "Lead System":["Clients arrive, but not on purpose. Without a repeatable way to bring people in, revenue rises and falls with how hard you pushed last month.","The feast and famine cycle. You sell when you're busy delivering and panic when you're not, so you can never fully switch off.","Pick one channel. One. Commit to it for 60 days with a single clear call to action, and track every lead it brings in."],
+    "Leverage":["You are the system. Every follow-up, booking and admin task runs through you, which is exactly why you can't step away.","Evenings and weekends on work a system could do, and a hard ceiling on growth because your hours are already full.","List every task you did last week. Circle the one you do most often that a system could do. That's your anchor task."],
+    "Amplify":["You're doing a lot, but not doubling down on what works. New ideas every month dilute the few things already bringing in clients.","Effort spread thin across channels and offers, so nothing compounds. You work harder for the same result.","Find the one piece of content or offer that has brought you a client. Make five more like it before you make anything new."],
+    "Results":["The business may be growing, but you can't see clearly what's working, and it isn't yet giving you the life you built it for.","Decisions made on feel, not numbers, and success measured by revenue alone while the time and freedom never quite arrive.","Choose three numbers: leads, calls, clients. Track them every Friday for four weeks and notice what moves them."]
+  };
+  const SS = { get(){ try { return JSON.parse(sessionStorage.getItem("ff-audit")) || null; } catch(e){ return null; } }, set(v){ try { sessionStorage.setItem("ff-audit", JSON.stringify(v)); } catch(e){} } };
+  let st = SS.get() || { i:0, a:[], route:{}, lead:{}, done:false };
+  const save = () => SS.set(st);
+
+  function scores(){ const s=[0,0,0,0,0,0]; st.a.forEach((v,i)=>{ if(v) s[Q[i][0]]+=v; }); return s; }
+  function weakest(s){ let m=0; s.forEach((v,i)=>{ if(v<s[m]) m=i; }); return m; }
+
+  function drawCols(colsEl, labEl, s, w){
+    colsEl.innerHTML = s.map((v,i)=>`<div class="col${i===w?" weak":""}" style="--h:${Math.max(16, v*10)}%"><span class="cap"></span><span class="shaft"></span><span class="base"></span></div>`).join("");
+    labEl.innerHTML = s.map((v,i)=>`<div class="${i===w?"weak":""}"><b>${LET[i]}</b><span>${P[i]}</span><em>${v}/10</em></div>`).join("");
+  }
+  
+  /* ---- landing opt-in ---- */
+  document.getElementById("optin").addEventListener("submit", e => {
+    e.preventDefault();
+    const f = e.target; if (!f.reportValidity()) return;
+    st = { i:0, a:[], route:st.route || {}, done:false, lead:{ name:document.getElementById("o-n").value.trim(), email:document.getElementById("o-e").value.trim(), mobile:document.getElementById("o-m").value.trim() } };
+    save(); FF.go("quiz");
+  });
+
+  /* ---- the audit: one form ---- */
+  const form = document.getElementById("aform");
+  const OPT = [["Rarely true",1],["Sometimes true",3],["Always true",5]];
+  function renderForm(){
+    const sel = (list, cur) => list.map(o => `<option${cur===o?" selected":""}>${o}</option>`).join("");
+    let h = `<div class="ahead"><div class="eyebrow">The Freedom Audit</div>
+      <h1>How true is each statement <em>for your business today?</em></h1>
+      <p class="lead">Twelve statements across the six pillars. Answer honestly. Nobody sees your answers but you.</p></div>
+      <div class="asticky"><div class="aprog"><i id="aprog"></i></div><span id="acount">0 of 12 answered</span></div>`;
+    P.forEach((p, pi) => {
+      h += `<fieldset class="pil"><legend><span class="L">${LET[pi]}</span><span><b>${p}</b><small>Pillar ${pi+1} of 6</small></span></legend>`;
+      Q.forEach((q, qi) => {
+        if (q[0] !== pi) return;
+        h += `<div class="stmt" id="s${qi}"><p>${q[1]}</p><div class="scale" role="radiogroup" aria-label="${q[1]}">${OPT.map(([t,v]) => `<label><input type="radio" name="q${qi}" value="${v}"${st.a[qi]===v?" checked":""}><span>${t}</span></label>`).join("")}</div></div>`;
+      });
+      h += `</fieldset>`;
+    });
+    h += `<fieldset class="pil"><legend><span class="L">+</span><span><b>About you</b><small>So James can tailor your next step</small></span></legend>
+      <div class="grid2" style="margin-top:8px"><label class="field" for="a-role">Which best describes you?<select id="a-role"><option value="">Choose one</option>${sel(ROUTE[0].o, st.route.role)}</select></label>
+      <label class="field" for="a-rev">Monthly revenue<select id="a-rev"><option value="">Choose one</option>${sel(ROUTE[1].o, st.route.rev)}</select></label></div>
+      <label class="field" for="a-fix"><span>If you could fix one thing in the next 90 days, what would it be? <span class="opt">(optional)</span></span><textarea id="a-fix" rows="2">${st.route.fix||""}</textarea></label>
+      <div class="grid2"><label class="field" for="a-n">First name<input id="a-n" autocomplete="given-name" value="${st.lead.name||""}"></label><label class="field" for="a-e">Email<input id="a-e" type="email" autocomplete="email" value="${st.lead.email||""}"></label></div></fieldset>
+      <div class="asubmit"><button class="btn terra" type="submit">See my results <span class="ar">→</span></button><span class="fine" id="aerr">Your results appear instantly on the next page.</span></div>`;
+    form.innerHTML = h; prog();
+  }
+  const answered = () => Q.map((_, i) => form.querySelector(`input[name=q${i}]:checked`));
+  function prog(){
+    const n = answered().filter(Boolean).length;
+    document.getElementById("aprog").style.width = (n/Q.length*100) + "%";
+    document.getElementById("acount").textContent = n === Q.length ? "All 12 answered" : `${n} of 12 answered`;
+  }
+  form.addEventListener("change", e => { prog(); const s = e.target.closest(".stmt"); if (s) s.classList.remove("miss"); });
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const a = answered(), err = document.getElementById("aerr");
+    form.querySelectorAll(".stmt").forEach((s, i) => s.classList.toggle("miss", !a[i]));
+    const first = a.findIndex(x => !x);
+    if (first > -1){ err.textContent = `Please answer all 12 statements (${a.filter(Boolean).length} of 12 done).`; err.classList.add("bad"); document.getElementById("s"+first).scrollIntoView({ behavior:"smooth", block:"center" }); return; }
+    const name = document.getElementById("a-n").value.trim(), email = document.getElementById("a-e").value.trim();
+    if (!name || !/^\S+@\S+\.\S+$/.test(email)){ err.textContent = "Add your first name and email so we can send your results."; err.classList.add("bad"); document.getElementById(name ? "a-e" : "a-n").focus(); return; }
+    st.a = a.map(x => +x.value);
+    st.route = { role:document.getElementById("a-role").value, rev:document.getElementById("a-rev").value, fix:document.getElementById("a-fix").value.trim() };
+    st.lead = { ...st.lead, name, email };
+    st.done = true; save(); FF.go("results");
+  });
+
+  function renderResults(){
+    const sample = !st.done;
+    const s = sample ? [8,6,4,5,6,7] : scores();
+    const w = weakest(s), total = s.reduce((x,y)=>x+y,0), p = P[w];
+    const stamp = document.getElementById("r-stamp");
+    stamp.textContent = sample ? "Sample result · take the audit to see yours" : "Your result";
+    stamp.classList.toggle("sample", sample);
+    document.getElementById("r-name").textContent = (st.lead.name || "Sarah");
+    document.getElementById("r-pillar").textContent = p;
+    document.getElementById("r-p2").textContent = p;
+    document.getElementById("r-score").textContent = total;
+    document.getElementById("r-band").textContent = total >= 48 ? "Strong foundation" : total >= 32 ? "Solid, with one crack" : "Foundation needs work";
+    document.getElementById("r-meaning").textContent = `Your Freedom Score is ${total} out of 60. ${p} is the pillar quietly holding the rest back. Watch the short video below before you do anything else.`;
+    const t = TXT[p];
+    document.getElementById("r-d1").textContent = t[0];
+    document.getElementById("r-d2").textContent = t[1];
+    document.getElementById("r-d3").textContent = t[2];
+    drawCols(document.getElementById("r-cols"), document.getElementById("r-labels"), s, w);
+    document.getElementById("r-route").hidden = st.route.rev !== "Under $5K";
+  }
+
+  /* booking */
+  const days = document.getElementById("days"), times = document.getElementById("times"), go = document.getElementById("bk-go");
+  let pick = { d:null, t:null };
+  const SLOTS = ["8:00 am","9:30 am","11:00 am","1:00 pm","3:30 pm","5:00 pm","7:30 pm"];
+  const list = []; { const d = new Date(); while (list.length < 5){ d.setDate(d.getDate()+1); if (d.getDay()%6) list.push(new Date(d)); } }
+  function renderCal(){
+    days.innerHTML = list.map((d,i)=>`<button type="button" data-d="${i}" class="${pick.d===i?"sel":""}"><small>${d.toLocaleDateString(undefined,{weekday:"short"})}</small><b>${d.getDate()}</b><small>${d.toLocaleDateString(undefined,{month:"short"})}</small></button>`).join("");
+    times.innerHTML = pick.d==null ? '<span class="fine">Choose a day to see times.</span>' : SLOTS.map((t,i)=>`<button type="button" data-t="${t}" ${((i+pick.d)%3===1)?"disabled":""} class="${pick.t===t?"sel":""}">${t}</button>`).join("");
+    go.disabled = !(pick.d!=null && pick.t);
+    go.textContent = go.disabled ? "Choose a time first" : `Confirm ${list[pick.d].toLocaleDateString(undefined,{weekday:"long"})}, ${pick.t}`;
+  }
+  days.addEventListener("click", e => { const b = e.target.closest("[data-d]"); if (b){ pick = { d:+b.dataset.d, t:null }; renderCal(); } });
+  times.addEventListener("click", e => { const b = e.target.closest("[data-t]"); if (b && !b.disabled){ pick.t = b.dataset.t; renderCal(); } });
+  document.getElementById("cal").addEventListener("submit", e => {
+    e.preventDefault(); if (go.disabled) return;
+    const d = list[pick.d];
+    document.getElementById("bk-day").firstChild.textContent = d.getDate();
+    document.getElementById("bk-mon").textContent = d.toLocaleDateString(undefined,{month:"short"});
+    document.getElementById("bk-when").textContent = `${d.toLocaleDateString(undefined,{weekday:"long",day:"numeric",month:"long"})} at ${pick.t}`;
+    st.call = document.getElementById("bk-when").textContent; st.callDay = d.getDate(); st.callMon = d.toLocaleDateString(undefined,{month:"short"}); save();
+    FF.go("booked");
+  });
+  document.getElementById("precall").addEventListener("submit", e => { e.preventDefault(); document.getElementById("pc-ok").textContent = "Thanks. James will read these before your call. (Preview: nothing was sent.)"; });
+
+  document.addEventListener("ff:page", e => {
+    if (e.detail === "quiz") renderForm();
+    if (e.detail === "results") renderResults();
+    if (e.detail === "book"){ document.getElementById("bk-n").value = st.lead.name || ""; document.getElementById("bk-e").value = st.lead.email || ""; renderCal(); }
+    if (e.detail === "booked" && st.call){
+      document.getElementById("bk-when").textContent = st.call;
+      document.getElementById("bk-day").firstChild.textContent = st.callDay;
+      document.getElementById("bk-mon").textContent = st.callMon;
+    }
+  });
+})();
+</script>
+<script src="videos.js"></script>
+<script src="assets/ff.js"></script>
+</body>
+</html>
